@@ -43,6 +43,7 @@ class RequestConsumer(threading.Thread):
                 response = ["%s 200 OK" % http_ver, "Content-Type: text/html;", ""]
                 with open("../resources/index.html", "r") as content_file:
                     response.append(content_file.read())
+                print("\n".join(response))
                 self.client_socket.send("\n".join(response).encode("utf-8"))
                 self.client_socket.shutdown(socket.SHUT_RDWR)
                 self.client_socket.close()
