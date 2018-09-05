@@ -17,7 +17,7 @@ class FileParser(threading.Thread):
             for _word in re.sub("[^\w]", " ", line).split():
                 l_word = _word.lower()
                 if l_word in self.stats:
-                    self.stats[l_word] = self.stats.get(l_word) + 1
+                    self.stats[l_word] += 1
                 else:
                     self.stats[l_word] = 1
         self.outputs.append((self.stats, self.file_name))
